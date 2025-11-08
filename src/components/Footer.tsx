@@ -9,7 +9,7 @@ const Footer = () => {
             {/* Brand */}
             <div>
               <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-                Atenas
+                Kon Pop Detection
               </h3>
               <p className="text-muted-foreground mb-4">
                 AI-powered oral cancer screening for underserved communities.
