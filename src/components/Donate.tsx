@@ -93,7 +93,7 @@ const Donate = () => {
               </div>
 
               <p className="text-sm text-muted-foreground mt-6">
-                Atenas is a registered nonprofit organization. Your donation may be tax-deductible.
+                Kon Pop Detection is aiming to register as a nonprofit organization. Your donation may be tax-deductible.
               </p>
             </CardContent>
           </Card>
