@@ -35,7 +35,7 @@ const HowItWorks = () => {
             />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            How Atenas Works
+            How Kon Pop Detection Works
           </h2>
           <p className="text-lg text-muted-foreground">
             Our AI-powered platform makes oral cancer screening fast, accurate, and accessible.
