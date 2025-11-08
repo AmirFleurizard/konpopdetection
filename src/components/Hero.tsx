@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_8s_linear_infinite]">
-            Atenas
+            Kon Pop Detection
           </h1>
           <p className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
             AI-Powered Oral Cancer Screening for Everyone
