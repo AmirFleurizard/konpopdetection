@@ -1,10 +1,10 @@
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+Follow these steps to run locally:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <project URL>
+git clone https://github.com/AmirFleurizard/konpopdetection.git
 
 # Step 2: Navigate to your project directory.
 cd <YOUR_PROJECT_NAME>
