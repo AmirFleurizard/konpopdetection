@@ -77,7 +77,7 @@ const Donate = () => {
                   variant="donate" 
                   size="lg"
                   className="text-lg"
-                  onClick={() => alert('Donation functionality would be integrated with your preferred payment processor')}
+                  onClick={() => window.open('https://gofund.me/c20427750', '_blank')}
                 >
                   <Heart className="fill-current" />
                   Donate Now
