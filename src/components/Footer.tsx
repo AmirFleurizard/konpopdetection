@@ -14,11 +14,6 @@ const Footer = () => {
               <p className="text-muted-foreground mb-4">
                 AI-powered oral cancer screening for underserved communities.
               </p>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span>Made with</span>
-                <Heart className="w-4 h-4 text-accent fill-current" />
-                <span>for a healthier world</span>
-              </div>
             </div>
 
             {/* Quick Links */}
