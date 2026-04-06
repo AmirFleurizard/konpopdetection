@@ -28,7 +28,7 @@ const Mission = () => {
             Our Mission
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
-            Atenas is dedicated to democratizing oral cancer screening through artificial intelligence. 
+            Kon Pop Detection is dedicated to democratizing oral cancer screening through artificial intelligence. 
             We believe that early detection should not be a privilege—it should be a right accessible to all.
           </p>
         </div>

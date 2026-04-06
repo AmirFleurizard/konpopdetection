@@ -21,35 +21,35 @@ const Footer = () => {
               <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
-                  <button 
-                    onClick={() => document.getElementById('mission')?.scrollIntoView({ behavior: 'smooth' })}
+                  <button
+                    onClick={() => document.getElementById("mission")?.scrollIntoView({ behavior: "smooth" })}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     Our Mission
                   </button>
                 </li>
                 <li>
-                  <button 
-                    onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                  <button
+                    onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     How It Works
                   </button>
                 </li>
                 <li>
-                  <button 
-                    onClick={() => document.getElementById('impact')?.scrollIntoView({ behavior: 'smooth' })}
+                  <button
+                    onClick={() => document.getElementById("impact")?.scrollIntoView({ behavior: "smooth" })}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     Our Impact
                   </button>
                 </li>
                 <li>
-                  <button 
-                    onClick={() => document.getElementById('donate')?.scrollIntoView({ behavior: 'smooth' })}
+                  <button
+                    onClick={() => document.getElementById("careers")?.scrollIntoView({ behavior: "smooth" })}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    Donate
+                    Careers
                   </button>
                 </li>
               </ul>
@@ -61,8 +61,8 @@ const Footer = () => {
               <p className="text-muted-foreground mb-4">
                 Interested in partnering with us or learning more about our work?
               </p>
-              <button 
-                onClick={() => alert('Contact form would be implemented here')}
+              <button
+                onClick={() => alert("Contact form would be implemented here")}
                 className="text-primary hover:text-primary/80 font-medium transition-colors"
               >
                 Contact Us →
@@ -71,7 +71,10 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} Atenas. All rights reserved. • Empowering communities through accessible healthcare technology.</p>
+            <p>
+              © {new Date().getFullYear()} Kon Pop Detection. All rights reserved. • Empowering communities through accessible
+              healthcare technology.
+            </p>
           </div>
         </div>
       </div>
