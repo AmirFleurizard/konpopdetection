@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart } from "lucide-react";
+import { ArrowRight, Briefcase } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
@@ -44,13 +44,13 @@ const Hero = () => {
               <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
-              variant="donate" 
+              variant="hero" 
               size="lg"
-              onClick={() => scrollToSection('donate')}
+              onClick={() => scrollToSection('careers')}
               className="group"
             >
-              <Heart className="fill-current" />
-              Support Our Cause
+              <Briefcase className="w-5 h-5" />
+              Join Our Team
             </Button>
           </div>
         </div>
