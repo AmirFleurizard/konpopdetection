@@ -12,17 +12,17 @@ const Partners = () => {
             <img
               src={harvardLogo}
               alt="Harvard University"
-              className="h-9 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity"
+              className="h-12 md:h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
             />
             <img
               src={mitLogo}
               alt="MIT"
-              className="h-9 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity"
+              className="h-12 md:h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
             />
             <img
               src={googleLogo}
               alt="Google"
-              className="h-8 md:h-9 object-contain opacity-70 hover:opacity-100 transition-opacity"
+              className="h-11 md:h-14 object-contain opacity-70 hover:opacity-100 transition-opacity"
             />
           </div>
         </div>
