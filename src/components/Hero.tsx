@@ -2,9 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import nursePortrait from "@/assets/field/nurse-portrait.jpg";
-import harvardLogo from "@/assets/harvard-logo.png";
-import mitLogo from "@/assets/mit-logo.png";
-import googleLogo from "@/assets/google-logo.png";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -43,17 +40,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Trust strip */}
-            <div className="pt-6 border-t border-border/70">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                Research foundations
-              </p>
-              <div className="flex flex-wrap items-center gap-x-8 gap-y-4 opacity-80">
-                <img src={harvardLogo} alt="Harvard" className="h-7 object-contain grayscale" />
-                <img src={mitLogo} alt="MIT" className="h-7 object-contain grayscale" />
-                <img src={googleLogo} alt="Google" className="h-6 object-contain grayscale" />
-              </div>
-            </div>
           </div>
 
           {/* Photo composition */}
