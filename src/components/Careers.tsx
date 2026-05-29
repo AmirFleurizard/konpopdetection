@@ -1,78 +1,88 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Briefcase, Code, FlaskConical } from "lucide-react";
+import { ArrowRight, Code, FlaskConical, Briefcase } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+const roles = [
+  {
+    icon: Code,
+    title: "Engineering",
+    description:
+      "Build AI-powered tools that detect oral cancer early and save lives.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Research",
+    description:
+      "Advance our machine learning models and clinical validation studies.",
+  },
+  {
+    icon: Briefcase,
+    title: "Operations & Outreach",
+    description:
+      "Expand into underserved communities and grow our clinical partnerships.",
+  },
+];
 
 const Careers = () => {
   const navigate = useNavigate();
 
-  const roles = [
-    {
-      icon: Code,
-      title: "Engineering",
-      description: "Build AI-powered tools that detect oral cancer early and save lives.",
-    },
-    {
-      icon: FlaskConical,
-      title: "Research",
-      description: "Advance our machine learning models and clinical validation studies.",
-    },
-    {
-      icon: Briefcase,
-      title: "Operations & Outreach",
-      description: "Help us expand into underserved communities and manage partnerships.",
-    },
-  ];
-
   return (
-    <section id="careers" className="py-20 bg-gradient-to-b from-background to-primary/5">
+    <section id="careers" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-accent to-primary mb-6">
-              <Briefcase className="w-10 h-10 text-primary-foreground" />
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-12">
+            <div className="lg:col-span-7">
+              <span className="eyebrow">Careers</span>
+              <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground mt-4 leading-[1.1]">
+                Build the future of accessible healthcare.
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Join Our Team</h2>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              We're building a team passionate about using technology to improve healthcare access.
-              Join our waitlist to be the first to know when positions open.
-            </p>
+            <div className="lg:col-span-5">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We're a small team of engineers, researchers, and operators
+                obsessed with one outcome — closing the screening gap.
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {roles.map((role, index) => {
+          <div className="grid md:grid-cols-3 gap-px bg-border rounded-xl overflow-hidden ring-1 ring-border mb-10">
+            {roles.map((role) => {
               const Icon = role.icon;
               return (
-                <Card key={index} className="border-border bg-card">
-                  <CardContent className="pt-6 pb-6 text-center">
-                    <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="font-semibold mb-2 text-card-foreground">{role.title}</h3>
-                    <p className="text-sm text-muted-foreground">{role.description}</p>
-                  </CardContent>
-                </Card>
+                <div key={role.title} className="bg-surface p-8">
+                  <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center mb-5">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {role.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {role.description}
+                  </p>
+                </div>
               );
             })}
           </div>
 
-          <Card className="border-2 border-primary/20 bg-gradient-to-br from-card to-primary/5 shadow-[var(--shadow-elevated)]">
-            <CardContent className="pt-10 pb-10 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">Interested in Working With Us?</h3>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                We're not actively hiring yet, but we'd love to hear from you. Join our career waitlist and we'll reach out when opportunities arise.
+          <div className="rounded-xl bg-brand-deep p-10 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h3 className="font-display text-2xl md:text-3xl text-white mb-2">
+                Not actively hiring — but we want to meet you.
+              </h3>
+              <p className="text-white/70">
+                Join the waitlist and we'll reach out when the right role opens.
               </p>
-              <Button
-                variant="hero"
-                size="lg"
-                className="text-lg"
-                onClick={() => navigate("/careers")}
-              >
-                <Briefcase className="w-5 h-5" />
-                Join the Waitlist
-              </Button>
-            </CardContent>
-          </Card>
+            </div>
+            <Button
+              size="lg"
+              variant="default"
+              className="bg-white text-brand-deep hover:bg-white/90 shrink-0"
+              onClick={() => navigate("/careers")}
+            >
+              Join the Waitlist
+              <ArrowRight />
+            </Button>
+          </div>
         </div>
       </div>
     </section>

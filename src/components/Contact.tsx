@@ -5,6 +5,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { z } from "zod";
+import { Mail, MapPin } from "lucide-react";
+import hospitalTeam from "@/assets/field/hospital-team.jpg";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -13,11 +15,7 @@ const contactSchema = z.object({
 });
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,101 +24,131 @@ const Contact = () => {
     try {
       contactSchema.parse(formData);
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        toast.error(error.errors[0].message);
-      }
+      if (error instanceof z.ZodError) toast.error(error.errors[0].message);
       return;
     }
 
     setIsSubmitting(true);
-
     try {
       const response = await fetch("https://formspree.io/f/xykblvko", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
       });
-
       if (response.ok) {
         toast.success("Thanks for reaching out! We'll get back to you soon.");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        toast.error(
-          "Something went wrong. Please try again or email us directly at amir@konpopdetection.com."
-        );
+        toast.error("Something went wrong. Please email us at amir@konpopdetection.com.");
       }
     } catch {
-      toast.error(
-        "Something went wrong. Please try again or email us directly at amir@konpopdetection.com."
-      );
+      toast.error("Something went wrong. Please email us at amir@konpopdetection.com.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="py-20 px-4" id="contact">
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
-          Get In Touch
-        </h2>
-        <p className="text-center text-muted-foreground mb-12">
-          Have questions or want to get involved? We'd love to hear from you.
-        </p>
+    <section id="contact" className="py-24 md:py-32 bg-surface-muted">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Left: context + photo */}
+          <div className="lg:col-span-5">
+            <span className="eyebrow">Contact</span>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground mt-4 mb-5 leading-[1.1]">
+              Let's bring screening to your community.
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Whether you're a clinician, partner organization, or investor —
+              we'd love to talk.
+            </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-border/50 shadow-lg">
-          <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              id="name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              placeholder="Your name"
-              maxLength={100}
-              required
-              disabled={isSubmitting}
-            />
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-primary mt-0.5" />
+                <div>
+                  <div className="text-sm font-semibold text-foreground">Email</div>
+                  <a
+                    href="mailto:amir@konpopdetection.com"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    amir@konpopdetection.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary mt-0.5" />
+                <div>
+                  <div className="text-sm font-semibold text-foreground">Active deployments</div>
+                  <div className="text-muted-foreground">Hua Taphan Hospital, Thailand</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden ring-1 ring-border shadow-[var(--shadow-card)] aspect-[4/3]">
+              <img
+                src={hospitalTeam}
+                alt="The Kon Pop Detection team and partners"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="your.email@example.com"
-              maxLength={255}
-              required
-              disabled={isSubmitting}
-            />
-          </div>
+          {/* Right: form */}
+          <div className="lg:col-span-7">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-surface rounded-2xl p-8 md:p-10 ring-1 ring-border shadow-[var(--shadow-card)] space-y-6"
+            >
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-sm font-semibold">Name</Label>
+                <Input
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Your name"
+                  maxLength={100}
+                  required
+                  disabled={isSubmitting}
+                  className="h-11"
+                />
+              </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea
-              id="message"
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              placeholder="Tell us how you'd like to help or what questions you have..."
-              className="min-h-[150px]"
-              maxLength={1000}
-              required
-              disabled={isSubmitting}
-            />
-          </div>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-sm font-semibold">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="your.email@example.com"
+                  maxLength={255}
+                  required
+                  disabled={isSubmitting}
+                  className="h-11"
+                />
+              </div>
 
-          <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </Button>
-        </form>
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-sm font-semibold">Message</Label>
+                <Textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Tell us how you'd like to help or what questions you have..."
+                  className="min-h-[160px]"
+                  maxLength={1000}
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   );

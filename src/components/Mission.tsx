@@ -1,60 +1,81 @@
-import { Target, Users, DollarSign } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import nursePortrait from "@/assets/field/nurse-portrait.jpg";
 
 const Mission = () => {
   const values = [
     {
-      icon: Target,
+      number: "01",
       title: "Early Detection",
-      description: "AI-powered screening technology that identifies potential oral cancer indicators quickly and accurately.",
+      description:
+        "AI-powered screening that surfaces potential oral cancer indicators in seconds, not weeks.",
     },
     {
-      icon: Users,
+      number: "02",
       title: "Accessible Care",
-      description: "Bringing advanced screening to underserved communities where healthcare access is limited.",
+      description:
+        "Designed for the field — community clinics, mobile outreach, low-resource settings.",
     },
     {
-      icon: DollarSign,
-      title: "Affordable Solution",
-      description: "Cost-effective technology that makes screening financially accessible to everyone who needs it.",
+      number: "03",
+      title: "Affordable Scale",
+      description:
+        "A cost structure built so screening can reach the populations that need it most.",
     },
   ];
 
   return (
-    <section id="mission" className="py-20 bg-gradient-to-b from-background to-secondary/30">
+    <section id="mission" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Our Mission
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            Kon Pop Detection is dedicated to democratizing oral cancer screening through artificial intelligence. 
-            We believe that early detection should not be a privilege—it should be a right accessible to all.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+          {/* Left: photo + manifesto */}
+          <div className="lg:col-span-5">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[var(--shadow-card)] ring-1 ring-border">
+              <img
+                src={nursePortrait}
+                alt="Clinician at a community health desk"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-brand-deep/90 via-brand-deep/40 to-transparent">
+                <p className="text-sm text-white/90 italic font-display">
+                  "Geography should never decide who gets early care."
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {values.map((value, index) => {
-            const Icon = value.icon;
-            return (
-              <Card 
-                key={index} 
-                className="border-border bg-card hover:shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1"
-              >
-                <CardContent className="pt-8 pb-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-primary-foreground" />
+          {/* Right: values */}
+          <div className="lg:col-span-7">
+            <span className="eyebrow mb-5">Our Mission</span>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground mt-4 mb-6 leading-[1.1]">
+              Democratizing oral cancer detection with clinical-grade AI.
+            </h2>
+            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+              We build for the clinics that have been overlooked. Our platform
+              meets healthcare workers where they already are — and turns a
+              smartphone into a screening tool capable of catching disease at
+              its most treatable stage.
+            </p>
+
+            <div className="space-y-6">
+              {values.map((value) => (
+                <div
+                  key={value.number}
+                  className="grid grid-cols-[auto_1fr] gap-5 pb-6 border-b border-border last:border-0 last:pb-0"
+                >
+                  <div className="font-display text-2xl text-primary font-medium pt-0.5">
+                    {value.number}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-card-foreground">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-1.5">
+                      {value.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
