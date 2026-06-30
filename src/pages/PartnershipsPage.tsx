@@ -176,7 +176,7 @@ const PartnershipsPage = () => {
             <div className="grid grid-cols-3 gap-8 items-center max-w-2xl mx-auto">
               {[
                 { src: mitLogo, alt: "MIT", name: "MIT" },
-                { src: harvardLogo, alt: "Harvard University", name: "Harvard" },
+                //{ src: harvardLogo, alt: "Harvard University", name: "Harvard" },
                 { src: googleLogo, alt: "Google", name: "Google" },
               ].map((org) => (
                 <div key={org.name} className="flex flex-col items-center gap-1.5">
