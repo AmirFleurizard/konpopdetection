@@ -9,11 +9,11 @@ const Partners = () => {
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-8">Recognized by</p>
           <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-8">
-            <img
+            {/*<img
               src={harvardLogo}
               alt="Harvard University"
               className="h-12 md:h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-            />
+            />*/}
             <img
               src={mitLogo}
               alt="MIT"
