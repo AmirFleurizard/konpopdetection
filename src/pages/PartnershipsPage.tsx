@@ -173,7 +173,7 @@ const PartnershipsPage = () => {
             <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
               Our work in AI-powered oral cancer detection has been recognized by leading institutions worldwide.
             </p>
-            <div className="grid grid-cols-3 gap-8 items-center max-w-2xl mx-auto">
+            <div className="flex justify-evenly items-center max-w-2xl mx-auto">
               {[
                 { src: mitLogo, alt: "MIT", name: "MIT" },
                 //{ src: harvardLogo, alt: "Harvard University", name: "Harvard" },
